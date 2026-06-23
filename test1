@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="页面描述">
+    <meta name="keywords" content="关键词, HTML, 模板">
+    <meta name="author" content="作者">
+    <title>页面标题</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- 外部样式表 -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- 内联样式 -->
+    <style>
+        /* ========== CSS Reset ========== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ========== CSS 变量 ========== */
+        :root {
+            --color-primary: #4a90d9;
+            --color-primary-hover: #357abd;
+            --color-bg: #f5f5f5;
+            --color-text: #333333;
+            --color-text-light: #666666;
+            --color-white: #ffffff;
+            --color-border: #e0e0e0;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                          "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei",
+                          sans-serif;
+            --max-width: 1200px;
+            --header-height: 64px;
+        }
+
+        /* ========== 基础样式 ========== */
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--color-primary-hover);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        /* ========== 头部 ========== */
+        .header {
+            background-color: var(--color-white);
+            height: var(--header-height);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header__inner {
+            max-width: var(--max-width);
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header__logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--color-text);
+        }
+
+        .header__nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        .header__nav a {
+            font-size: 0.95rem;
+            color: var(--color-text);
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .header__nav a:hover,
+        .header__nav a.active {
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        /* ========== 主要内容 ========== */
+        .main {
+            flex: 1;
+            max-width: var(--max-width);
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .hero__title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--color-primary), #6c5ce7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero__subtitle {
+            font-size: 1.2rem;
+            color: var(--color-text-light);
+            margin-bottom: 32px;
+        }
+
+        .hero__button {
+            display: inline-block;
+            padding: 12px 32px;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .hero__button:hover {
+            background-color: var(--color-primary-hover);
+            transform: translateY(-2px);
+        }
+
+        /* ========== 卡片区域 ========== */
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section__title {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--color-white);
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .card__icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .card__title {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .card__desc {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        /* ========== 页脚 ========== */
+        .footer {
+            background-color: var(--color-white);
+            text-align: center;
+            padding: 24px;
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--color-border);
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== 头部导航 ==================== -->
+    <header class="header">
+        <div class="header__inner">
+            <a href="#" class="header__logo">Kakeru</a>
+            <nav class="header__nav">
+                <a href="#home" class="active">首页</a>
+                <a href="#features">特性</a>
+                <a href="#about">关于</a>
+                <a href="#contact">联系</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== 主要内容 ==================== -->
+    <main class="main">
+        <!-- Hero 区域 -->
+        <section class="hero" id="home">
+            <h1 class="hero__title">欢迎来到我的网站</h1>
+            <p class="hero__subtitle">一个简洁、现代的 HTML 模板，助你快速开始项目</p>
+            <button class="hero__button" onclick="alert('开始使用！')">开始使用</button>
+        </section>
+
+        <!-- 特性卡片 -->
+        <section class="section" id="features">
+            <h2 class="section__title">核心特性</h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="card__icon">🚀</div>
+                    <h3 class="card__title">快速启动</h3>
+                    <p class="card__desc">开箱即用的模板，无需额外配置，直接开始编写你的内容。</p>
+                </div>
+                <div class="card">
+                    <div class="card__icon">📱</div>
+                    <h3 class="card__title">响应式设计</h3>
+                    <p class="card__desc">自适应各种屏幕尺寸，在手机、平板和桌面端都能完美呈现。</p>
+                </div>
+                <div class="card">
+                    <div class="card__icon">🎨</div>
+                    <h3 class="card__title">易于定制</h3>
+                    <p class="card__desc">使用 CSS 变量管理主题色和尺寸，修改几行即可改变整体风格。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== 页脚 ==================== -->
+    <footer class="footer">
+        <p>&copy; <span id="year"></span> 我的网站. All rights reserved.</p>
+    </footer>
+
+    <!-- 外部脚本 -->
+    <script src="js/main.js"></script>
+
+    <!-- 内联脚本 -->
+    <script>
+        // 自动更新版权年份
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 平滑滚动 + 导航高亮
+        document.querySelectorAll('.header__nav a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                document.querySelectorAll('.header__nav a').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        console.log('页面加载完成 🎉');
+    </script>
+</body>
+</html>
